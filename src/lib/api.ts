@@ -22,8 +22,8 @@ export async function getBookAll() {
   }
 }
 
-export async function getBookByTitle(title?: string) {
-  const url = `${VITE_BE_API_URL}/library/title=${title}`;
+export async function getBookByTitle(id?: string) {
+  const url = `${VITE_BE_API_URL}/library/id=${id}`;
 
   try {
     const response = await fetch(url, {

@@ -1,7 +1,14 @@
 import Button from './Button';
 import { Book } from '../lib/book.interface';
+import { useNavigate } from 'react-router-dom';
 
 const BookCards = ({ books }: { books: Book[] }) => {
+  const navigate = useNavigate();
+
+  const handleDetailsClick = (id: string) => {
+    navigate(`/view?id=${id}`);
+  };
+
   return (
     <div className="container mx-auto p-2 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {books.map((book) => (
@@ -39,7 +46,7 @@ const BookCards = ({ books }: { books: Book[] }) => {
           </div>
 
           <div className="flex justify-end space-x-1 sm:space-x-2">
-            <Button text="Details" bgColor="bg-blue-500 mx-2" hoverColor="bg-blue-600" />
+            <Button text="Details" bgColor="bg-blue-500 mx-2" hoverColor="bg-blue-600" onClick={() => handleDetailsClick(book.id)} />
             <Button text="Delete" bgColor="bg-red-500" hoverColor="bg-red-600" />
           </div>
         </div>

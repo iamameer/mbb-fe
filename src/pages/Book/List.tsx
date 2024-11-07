@@ -32,7 +32,11 @@ const List = () => {
   return (
     <div className="overflow-x-auto m-2 sm:m-10 text-sm sm:text-base">
       <Searchbar onSearch={handleSearch} />
-      <TableView books={filteredBooks} />
+      {filteredBooks.length > 0 ? (
+        <TableView books={filteredBooks} />
+      ) : (
+        <p>Sorry, no books found.</p>
+      )}
     </div>
   );
 };
