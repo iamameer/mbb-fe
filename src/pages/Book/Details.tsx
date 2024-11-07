@@ -69,8 +69,15 @@ const Details = () => {
         text="Back" 
         textColor="text-white"
         bgColor="bg-amber-500" 
-        hoverColor="hover:bg-amber-800 mb-4 ml-6 mt-10 px-4 py-2 rounded"
+        hoverColor="hover:bg-amber-800 mb-4 ml-16 mt-10 px-4 py-2 rounded"
         onClick={() => navigate('/')} />
+
+      <Button 
+        text="Edit" 
+        textColor="text-white"
+        bgColor="bg-blue-500" 
+        hoverColor="hover:bg-blue-800 mb-4 ml-28 mt-10 px-4 py-2 rounded"
+        onClick={() => navigate(`/edit?id=${book.id}`)} />
     </div>
   );
 }  
