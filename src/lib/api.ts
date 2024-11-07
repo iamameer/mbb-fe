@@ -91,3 +91,23 @@ export async function createBook(newBook: NewBook) {
     throw error;
   }
 }
+
+export async function deleteBook(id: string): Promise<void> {
+  const url = `${VITE_BE_API_URL}/library/id=${id}`;
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(`deleteBook failed`, error);
+    throw error;
+  }
+}

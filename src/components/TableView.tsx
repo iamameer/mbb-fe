@@ -1,6 +1,7 @@
 import Button from './Button';
 import { Book } from '../lib/book.interface';
 import { useNavigate } from 'react-router-dom';
+import { deleteBook } from '../lib/api';
 
 const BookCards = ({ books }: { books: Book[] }) => {
   const navigate = useNavigate();
@@ -8,6 +9,11 @@ const BookCards = ({ books }: { books: Book[] }) => {
   const handleDetailsClick = (id: string) => {
     navigate(`/view?id=${id}`);
   };
+
+  const handleDelete = async (id: string) => {
+    await deleteBook(id);
+    window.location.reload();
+  }
 
   return (
     <div className="container mx-auto p-2 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -47,7 +53,8 @@ const BookCards = ({ books }: { books: Book[] }) => {
 
           <div className="flex justify-end space-x-1 sm:space-x-2">
             <Button text="Details" bgColor="bg-blue-500 mx-2" hoverColor="bg-blue-600" onClick={() => handleDetailsClick(book.id)} />
-            <Button text="Delete" bgColor="bg-red-500" hoverColor="bg-red-600" />
+            <Button text="Delete" bgColor="bg-red-500" hoverColor="bg-red-600" 
+            onClick={() => handleDelete(book.id)}/>
           </div>
         </div>
       ))}
