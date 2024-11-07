@@ -1,6 +1,9 @@
 import Button from "./Button";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="sticky top-0 left-0 w-full bg-white bg-opacity-30 backdrop-blur-md shadow-lg border-b border-gray-200">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
@@ -11,6 +14,7 @@ const Navbar = () => {
           bgColor="bg-green-600 bg-opacity-80" 
           textColor="text-white" 
           hoverColor="hover:bg-green-700 hover:bg-opacity-100"
+          onClick={() => navigate('/create')}
         />
       </nav>
     </header>
