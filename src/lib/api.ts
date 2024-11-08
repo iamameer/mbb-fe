@@ -15,8 +15,6 @@ export async function getBookAll() {
       throw new Error(`Error: ${response.status}`);
     }
 
-    console.log(response);
-
     return await response.json();
   } catch (error) {
     console.error(`getBookAll failed`, error);
